@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7f8fb" />
+  <title>Q-One Studio — محرر الهوية الرقمية</title>
+  <link rel="stylesheet" href="assets/css/design-system.css" />
+  <link rel="stylesheet" href="assets/css/app.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;500;600;700;800&family=Changa:wght@300;400;500;600;700&family=El+Messiri:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&family=Readex+Pro:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/v02.css" />
+  <link rel="stylesheet" href="assets/css/v03.css" />
+</head>
+<body class="dashboard-body v02-dashboard v03-dashboard">
+  <div class="dashboard-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand brand-dashboard" href="index.html"><span class="brand-mark">Q</span><span class="brand-word">One</span><span class="brand-badge">Studio</span></a>
+      <nav class="side-nav">
+        <a class="active" href="#" data-panel="links"><span><i data-lucide="layers-3"></i></span><b>المحتوى</b></a>
+        <a href="#" data-panel="design"><span><i data-lucide="palette"></i></span><b>التصميم</b></a>
+        <a href="#" data-panel="qr"><span><i data-lucide="qr-code"></i></span><b>QR Code</b></a>
+        <a href="#" data-panel="analytics"><span><i data-lucide="chart-no-axes-combined"></i></span><b>التحليلات</b></a>
+        <a href="#" data-panel="settings"><span><i data-lucide="settings-2"></i></span><b>الإعدادات</b></a>
+      </nav>
+      <div class="side-bottom">
+        <div class="plan-card"><span>Q-One Design Engine</span><b>تخصيص متعدد الطبقات بدون قيود القالب</b><button class="btn btn-dark btn-sm" id="randomDesignBtn">توليفة سريعة</button></div>
+        <button class="profile-chip"><span class="mini-avatar">Q</span><div><b>Q-One Studio</b><small>design workspace</small></div><em>⌄</em></button>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="topbar">
+        <div class="topbar-title"><button class="icon-btn menu-btn" id="menuBtn" aria-label="القائمة"><i data-lucide="menu"></i></button><div><div class="breadcrumb">مساحة العمل / <b>صفحتي</b></div><h1 id="panelTitle">المحتوى</h1></div></div>
+        <div class="topbar-actions">
+          <span class="save-state" id="saveState"><i></i> محفوظ تلقائياً</span>
+          <button class="btn btn-outline btn-sm" id="exportBtn">تصدير التصميم</button>
+          <a class="btn btn-outline btn-sm hide-small" href="profile.html" target="_blank">فتح الصفحة ↗</a>
+          <button class="btn btn-primary btn-sm" id="publishBtn">نشر التغييرات</button>
+        </div>
+      </header>
+
+      <div class="workspace v02-workspace">
+        <section class="editor-column">
+          <div class="panel active" id="panel-links">
+            <div class="panel-head"><div><span class="panel-eyebrow">PROFILE</span><h2>هوية الصفحة</h2><p>بياناتك الأساسية وصورة الهوية التي تظهر في أعلى الصفحة.</p></div></div>
+            <div class="card form-card">
+              <div class="avatar-row">
+                <div class="editor-avatar" id="editorAvatar">Q</div>
+                <div class="upload-actions"><label class="btn btn-outline btn-sm file-button">رفع صورة<input id="avatarUpload" type="file" accept="image/png,image/jpeg,image/webp" /></label><button class="btn btn-ghost btn-sm" id="removeAvatarBtn" type="button">إزالة</button><p>PNG / JPG / WEBP — يفضل 800×800</p></div>
+              </div>
+              <div class="form-grid">
+                <label class="field"><span>اسم الصفحة</span><input id="nameInput" value="Q-One Studio" maxlength="50" /></label>
+                <label class="field"><span>اسم المستخدم</span><div class="slug-input"><small>q-one.me/</small><input id="slugInput" value="qone" dir="ltr" /></div></label>
+                <label class="field field-full"><span>نبذة قصيرة</span><textarea id="bioInput" rows="3" maxlength="160">هوية رقمية ذكية، في رابط واحد.</textarea><small class="counter"><b id="bioCount">34</b>/160</small></label>
+              </div>
+            </div>
+
+            <div class="panel-head section-space"><div><span class="panel-eyebrow">BLOCKS</span><h2>الروابط والعناصر</h2><p>رتّب الروابط بالسحب، ميّز الرابط المهم، أو أخفه دون حذفه.</p></div><button class="btn btn-primary btn-sm" id="addLinkBtn">+ إضافة عنصر</button></div>
+            <div class="link-editor-list" id="linkList"></div>
+          </div>
+
+          <div class="panel" id="panel-design">
+            <div class="panel-head design-head"><div><span class="panel-eyebrow">DESIGN ENGINE 0.3</span><h2>استوديو التصميم</h2><p>ابنِ مظهرك من طبقات مستقلة. كل خيار يعمل مع بقية الخيارات دون الارتباط بقالب محدد.</p></div><button class="btn btn-outline btn-sm" id="resetDesignBtn">إعادة الافتراضي</button></div>
+
+            <section class="design-section-card card">
+              <div class="design-section-title"><div><span>01</span><h3>نقطة بداية</h3></div><p>القالب يضبط توليفة أولية فقط، وبعدها يمكنك تغيير أي جزء بحرية.</p></div>
+              <div class="theme-grid theme-grid-v02" id="themeGrid">
+                <button class="theme-option active" data-theme="aurora"><span class="theme-thumb aurora"></span><b>Aurora</b><small>Violet mesh</small></button>
+                <button class="theme-option" data-theme="obsidian"><span class="theme-thumb t-obsidian"></span><b>Obsidian</b><small>Premium dark</small></button>
+                <button class="theme-option" data-theme="linen"><span class="theme-thumb t-linen"></span><b>Linen</b><small>Warm minimal</small></button>
+                <button class="theme-option" data-theme="ocean"><span class="theme-thumb t-ocean"></span><b>Ocean</b><small>Deep blue</small></button>
+                <button class="theme-option" data-theme="emerald"><span class="theme-thumb t-emerald"></span><b>Emerald</b><small>Fresh glass</small></button>
+                <button class="theme-option" data-theme="rose"><span class="theme-thumb t-rose"></span><b>Rose</b><small>Soft editorial</small></button>
+                <button class="theme-option" data-theme="mono"><span class="theme-thumb t-mono"></span><b>Mono</b><small>Black & white</small></button>
+                <button class="theme-option" data-theme="cyber"><span class="theme-thumb t-cyber"></span><b>Cyber</b><small>Neon energy</small></button>
+                <button class="theme-option" data-theme="sand"><span class="theme-thumb t-sand"></span><b>Sand</b><small>Natural calm</small></button>
+                <button class="theme-option" data-theme="cosmic"><span class="theme-thumb t-cosmic"></span><b>Cosmic</b><small>Space gradient</small></button>
+              </div>
+            </section>
+
+            <section class="design-section-card card activity-section">
+              <div class="design-section-title"><div><span>02</span><h3>قوالب الأنشطة المتحركة</h3></div><p>مشاهد Motion خفيفة ومجهزة بحسب النشاط، تعمل على الهاتف بدون فيديو ثقيل.</p></div>
+              <div class="activity-template-grid" id="activityTemplateGrid">
+                <button data-scene="none" class="activity-template active"><span class="activity-preview scene-none"><i data-lucide="circle-off"></i></span><b>بدون مشهد</b><small>Clean</small></button>
+                <button data-scene="restaurant" class="activity-template"><span class="activity-preview scene-restaurant"><i data-lucide="utensils-crossed"></i></span><b>مطعم</b><small>Restaurant</small></button>
+                <button data-scene="cafe" class="activity-template"><span class="activity-preview scene-cafe"><i data-lucide="coffee"></i></span><b>مقهى</b><small>Café</small></button>
+                <button data-scene="bakery" class="activity-template"><span class="activity-preview scene-bakery"><i data-lucide="croissant"></i></span><b>مخبز</b><small>Bakery</small></button>
+                <button data-scene="medical" class="activity-template"><span class="activity-preview scene-medical"><i data-lucide="stethoscope"></i></span><b>طبي</b><small>Medical</small></button>
+                <button data-scene="dental" class="activity-template"><span class="activity-preview scene-dental"><i data-lucide="badge-plus"></i></span><b>أسنان</b><small>Dental</small></button>
+                <button data-scene="beauty" class="activity-template"><span class="activity-preview scene-beauty"><i data-lucide="sparkles"></i></span><b>تجميل</b><small>Beauty</small></button>
+                <button data-scene="fashion" class="activity-template"><span class="activity-preview scene-fashion"><i data-lucide="shirt"></i></span><b>أزياء</b><small>Fashion</small></button>
+                <button data-scene="realestate" class="activity-template"><span class="activity-preview scene-realestate"><i data-lucide="building-2"></i></span><b>عقارات</b><small>Real estate</small></button>
+                <button data-scene="automotive" class="activity-template"><span class="activity-preview scene-automotive"><i data-lucide="car-front"></i></span><b>سيارات</b><small>Automotive</small></button>
+                <button data-scene="fitness" class="activity-template"><span class="activity-preview scene-fitness"><i data-lucide="dumbbell"></i></span><b>لياقة</b><small>Fitness</small></button>
+                <button data-scene="education" class="activity-template"><span class="activity-preview scene-education"><i data-lucide="graduation-cap"></i></span><b>تعليم</b><small>Education</small></button>
+                <button data-scene="technology" class="activity-template"><span class="activity-preview scene-technology"><i data-lucide="cpu"></i></span><b>تقنية</b><small>Technology</small></button>
+                <button data-scene="gaming" class="activity-template"><span class="activity-preview scene-gaming"><i data-lucide="gamepad-2"></i></span><b>ألعاب</b><small>Gaming</small></button>
+                <button data-scene="photography" class="activity-template"><span class="activity-preview scene-photography"><i data-lucide="camera"></i></span><b>تصوير</b><small>Photography</small></button>
+                <button data-scene="travel" class="activity-template"><span class="activity-preview scene-travel"><i data-lucide="plane"></i></span><b>سفر</b><small>Travel</small></button>
+                <button data-scene="ecommerce" class="activity-template"><span class="activity-preview scene-ecommerce"><i data-lucide="shopping-bag"></i></span><b>متجر</b><small>E-commerce</small></button>
+                <button data-scene="business" class="activity-template"><span class="activity-preview scene-business"><i data-lucide="briefcase-business"></i></span><b>أعمال</b><small>Business</small></button>
+                <button data-scene="events" class="activity-template"><span class="activity-preview scene-events"><i data-lucide="party-popper"></i></span><b>فعاليات</b><small>Events</small></button>
+                <button data-scene="hotel" class="activity-template"><span class="activity-preview scene-hotel"><i data-lucide="bed-double"></i></span><b>فنادق</b><small>Hotel</small></button>
+              </div>
+              <div class="design-grid-2 scene-controls">
+                <label class="field"><span>سرعة المشهد</span><select id="sceneSpeed"><option value="slow">هادئة</option><option value="normal" selected>متوازنة</option><option value="fast">سريعة</option></select></label>
+                <div class="toggle-line standalone-toggle"><div><h3>حركة المشهد</h3><p>يمكن إيقاف الحركة مع إبقاء القالب البصري.</p></div><label class="switch"><input id="sceneMotionToggle" type="checkbox" checked><span></span></label></div>
+              </div>
+            </section>
+
+            <section class="design-section-card card">
+              <div class="design-section-title"><div><span>03</span><h3>الخلفية</h3></div><p>Solid، Gradient، Mesh أو صورة مخصصة.</p></div>
+              <div class="segmented wide-segment" id="backgroundType">
+                <button class="active" data-value="mesh">Mesh</button><button data-value="gradient">Gradient</button><button data-value="solid">Solid</button><button data-value="image">Image</button>
+              </div>
+              <div class="design-grid-2">
+                <label class="field"><span>اللون الأساسي</span><div class="color-input"><input type="color" id="bgColor1" value="#151126"><input id="bgColor1Text" dir="ltr" value="#151126"></div></label>
+                <label class="field"><span>اللون الثانوي</span><div class="color-input"><input type="color" id="bgColor2" value="#7557ff"><input id="bgColor2Text" dir="ltr" value="#7557ff"></div></label>
+                <label class="field"><span>لون التوهج</span><div class="color-input"><input type="color" id="bgColor3" value="#2ee6a6"><input id="bgColor3Text" dir="ltr" value="#2ee6a6"></div></label>
+                <label class="field"><span>زاوية التدرج</span><div class="range-inline"><input class="range" id="gradientAngle" type="range" min="0" max="360" value="145"><output id="gradientAngleOut">145°</output></div></label>
+              </div>
+              <div class="background-upload-row" id="imageBgControls">
+                <label class="btn btn-outline btn-sm file-button">رفع خلفية<input id="backgroundUpload" type="file" accept="image/png,image/jpeg,image/webp" /></label>
+                <label class="field inline-field"><span>أو رابط صورة</span><input id="backgroundUrl" dir="ltr" placeholder="https://..." /></label>
+                <button class="btn btn-ghost btn-sm" id="clearBackgroundBtn">إزالة الصورة</button>
+              </div>
+              <div class="design-grid-2 compact-grid">
+                <div class="control-section compact-control"><div class="range-title"><h3>قوة الخلفية</h3><output id="glowOutput">72%</output></div><input class="range" id="glowRange" type="range" min="0" max="100" value="72" /></div>
+                <div class="control-section compact-control"><div class="range-title"><h3>تعتيم الصورة</h3><output id="overlayOutput">22%</output></div><input class="range" id="overlayRange" type="range" min="0" max="80" value="22" /></div>
+              </div>
+            </section>
+
+            <section class="design-section-card card">
+              <div class="design-section-title"><div><span>04</span><h3>الألوان والسطوح</h3></div><p>تحكم مستقل بلون التمييز والبطاقات والنصوص.</p></div>
+              <div class="design-grid-2">
+                <div><h4 class="micro-label">Accent</h4><div class="color-row color-row-v02" id="colorRow"><button data-color="#7557ff" style="--c:#7557ff" class="active"></button><button data-color="#2563eb" style="--c:#2563eb"></button><button data-color="#0ea5e9" style="--c:#0ea5e9"></button><button data-color="#14b86e" style="--c:#14b86e"></button><button data-color="#f59e0b" style="--c:#f59e0b"></button><button data-color="#f43f5e" style="--c:#f43f5e"></button><button data-color="#111827" style="--c:#111827"></button><label class="custom-color"><input type="color" id="customColor" value="#7557ff"><span>＋</span></label></div></div>
+                <label class="field"><span>لون النص</span><select id="textTone"><option value="auto">تلقائي حسب الخلفية</option><option value="light">فاتح</option><option value="dark">داكن</option></select></label>
+                <label class="field"><span>سطح الروابط</span><select id="surfaceTone"><option value="adaptive">Adaptive</option><option value="light">Light glass</option><option value="dark">Dark glass</option><option value="accent">Accent tint</option></select></label>
+                <div class="control-section compact-control"><div class="range-title"><h3>شفافية السطح</h3><output id="surfaceOpacityOut">10%</output></div><input class="range" id="surfaceOpacity" type="range" min="0" max="100" value="10" /></div>
+              </div>
+            </section>
+
+            <section class="design-section-card card">
+              <div class="design-section-title"><div><span>05</span><h3>الأزرار والروابط</h3></div><p>7 أنماط أساسية مع شكل وحواف وحدود وظلال مستقلة.</p></div>
+              <div class="style-choice-grid" id="buttonStyle">
+                <button class="active" data-style="glass"><span class="style-sample s-glass"></span><b>Glass</b></button>
+                <button data-style="solid"><span class="style-sample s-solid"></span><b>Solid</b></button>
+                <button data-style="outline"><span class="style-sample s-outline"></span><b>Outline</b></button>
+                <button data-style="soft"><span class="style-sample s-soft"></span><b>Soft</b></button>
+                <button data-style="elevated"><span class="style-sample s-elevated"></span><b>Elevated</b></button>
+                <button data-style="neo"><span class="style-sample s-neo"></span><b>Neo</b></button>
+                <button data-style="minimal"><span class="style-sample s-minimal"></span><b>Minimal</b></button>
+              </div>
+              <div class="design-grid-3">
+                <label class="field"><span>شكل الزر</span><select id="buttonShape"><option value="squircle">Squircle</option><option value="rounded">Rounded</option><option value="pill">Pill</option><option value="sharp">Sharp</option></select></label>
+                <label class="field"><span>ارتفاع الزر</span><select id="buttonHeight"><option value="compact">Compact</option><option value="normal" selected>Normal</option><option value="large">Large</option></select></label>
+                <label class="field"><span>شكل الأيقونة</span><select id="iconShape"><option value="soft">Soft square</option><option value="circle">Circle</option><option value="bare">بدون خلفية</option><option value="accent">Accent</option></select></label>
+              </div>
+              <div class="design-grid-3 compact-grid">
+                <div class="control-section compact-control"><div class="range-title"><h3>الحواف</h3><output id="radiusOutput">24px</output></div><input class="range" id="radiusRange" type="range" min="0" max="40" value="24" /></div>
+                <div class="control-section compact-control"><div class="range-title"><h3>الحدود</h3><output id="borderOutput">1px</output></div><input class="range" id="borderRange" type="range" min="0" max="3" step="1" value="1" /></div>
+                <div class="control-section compact-control"><div class="range-title"><h3>الظل</h3><output id="shadowOutput">32%</output></div><input class="range" id="shadowRange" type="range" min="0" max="100" value="32" /></div>
+              </div>
+            </section>
+
+            <section class="design-section-card card">
+              <div class="design-section-title"><div><span>06</span><h3>الهوية والطباعة</h3></div><p>اختر شخصية الصفحة من الخط، المحاذاة، شكل الصورة والمقاسات.</p></div>
+              <div class="design-grid-3">
+                <label class="field"><span>الخط العربي / الإنكليزي</span><select id="fontPreset">
+                  <option value="readex">Readex Pro</option><option value="cairo">Cairo</option><option value="tajawal">Tajawal</option><option value="plex">IBM Plex Sans Arabic</option><option value="noto">Noto Sans Arabic</option><option value="alexandria">Alexandria</option><option value="kufi">Noto Kufi Arabic</option><option value="changa">Changa</option><option value="elmessiri">El Messiri</option><option value="system">System UI</option>
+                </select></label>
+                <label class="field"><span>محاذاة الهوية</span><select id="profileAlign"><option value="center">وسط</option><option value="start">بداية السطر</option></select></label>
+                <label class="field"><span>شكل الصورة</span><select id="avatarShape"><option value="circle">دائري</option><option value="squircle">Squircle</option><option value="rounded">مربع ناعم</option><option value="hidden">إخفاء</option></select></label>
+                <label class="field"><span>حجم العنوان</span><select id="titleScale"><option value="small">Small</option><option value="normal" selected>Normal</option><option value="large">Large</option><option value="xl">XL</option></select></label>
+                <label class="field"><span>كثافة الصفحة</span><select id="density"><option value="compact">Compact</option><option value="comfortable" selected>Comfortable</option><option value="airy">Airy</option></select></label>
+                <label class="field"><span>تخطيط الروابط</span><select id="linkLayout"><option value="stack">Stack</option><option value="grid">2-column grid</option><option value="compact">Compact list</option></select></label>
+              </div>
+            </section>
+
+            <section class="design-section-card card">
+              <div class="design-section-title"><div><span>07</span><h3>التأثيرات والحركة</h3></div><p>حركة مدروسة دون التأثير على قابلية القراءة أو الأداء.</p></div>
+              <div class="design-grid-2">
+                <label class="field"><span>الحركة المستمرة</span><select id="motionPreset"><option value="none">بدون حركة</option><option value="subtle" selected>Subtle</option><option value="float">Float</option><option value="glow">Glow pulse</option><option value="breathe">Breathe</option><option value="drift">Drift</option></select></label>
+                <label class="field"><span>حركة الظهور عند التمرير</span><select id="scrollReveal"><option value="none">بدون</option><option value="fade-up" selected>Fade up</option><option value="fade-down">Fade down</option><option value="fade-right">Fade right</option><option value="fade-left">Fade left</option><option value="zoom">Zoom</option><option value="blur">Blur reveal</option><option value="flip">Soft flip</option><option value="bounce">Bounce</option></select></label>
+                <label class="field"><span>مدة حركة التمرير</span><div class="range-inline"><input class="range" id="scrollDuration" type="range" min="300" max="1200" step="50" value="650"><output id="scrollDurationOut">650ms</output></div></label>
+                <label class="field"><span>تأخير متتابع</span><div class="range-inline"><input class="range" id="scrollStagger" type="range" min="0" max="180" step="10" value="60"><output id="scrollStaggerOut">60ms</output></div></label>
+                <label class="field"><span>Blur السطوح</span><div class="range-inline"><input class="range" id="blurRange" type="range" min="0" max="30" value="18"><output id="blurOutput">18px</output></div></label>
+                <div class="toggle-line standalone-toggle"><div><h3>إظهار الإحصائيات</h3><p>شريط زيارات ونقرات مصغر.</p></div><label class="switch"><input id="statsToggle" type="checkbox" checked><span></span></label></div>
+                <div class="toggle-line standalone-toggle"><div><h3>إظهار علامة Q-One</h3><p>Made with Q-One أسفل الصفحة.</p></div><label class="switch"><input id="brandingToggle" type="checkbox" checked><span></span></label></div>
+              </div>
+            </section>
+
+            <section class="design-section-card card">
+              <div class="design-section-title"><div><span>08</span><h3>المقسمات بين الخانات</h3></div><p>فواصل تلقائية بين الروابط، إضافة إلى Divider يدوي يمكن وضعه في أي موضع.</p></div>
+              <div class="design-grid-2">
+                <div class="toggle-line standalone-toggle"><div><h3>فاصل تلقائي</h3><p>يظهر بين كل رابطين أو خانتين.</p></div><label class="switch"><input id="dividerToggle" type="checkbox"><span></span></label></div>
+                <label class="field"><span>شكل الفاصل</span><select id="dividerStyle"><option value="solid">Solid</option><option value="dashed">Dashed</option><option value="dotted">Dotted</option><option value="gradient">Gradient</option><option value="glow">Glow</option></select></label>
+                <label class="field"><span>شفافية الفاصل</span><div class="range-inline"><input class="range" id="dividerOpacity" type="range" min="10" max="100" value="42"><output id="dividerOpacityOut">42%</output></div></label>
+                <label class="field"><span>عرض الفاصل</span><div class="range-inline"><input class="range" id="dividerWidth" type="range" min="30" max="100" value="82"><output id="dividerWidthOut">82%</output></div></label>
+              </div>
+            </section>
+          </div>
+
+          <div class="panel" id="panel-qr">
+            <div class="panel-head"><div><span class="panel-eyebrow">DYNAMIC QR</span><h2>QR Code</h2><p>سيبقى الرابط ثابتاً حتى عند تغيير كل محتوى وتصميم الصفحة.</p></div></div>
+            <div class="card qr-layout">
+              <div class="qr-demo-card"><div class="qr-mock" id="qrMock" aria-label="QR preview"></div><b>q-one.me/<span id="qrSlug">qone</span></b><small>معاينة تصميمية — المولد الديناميكي في طبقة النظام التالية</small></div>
+              <div class="qr-controls"><h3>هوية QR</h3><p>المرحلة التالية تضيف QR حقيقياً مع الشعار، ألوان النقاط، الإطار والتصدير PNG / SVG / PDF.</p><label class="field"><span>النص أسفل QR</span><input value="امسح للوصول إلى جميع روابطنا" /></label><div class="inline-actions"><button class="btn btn-primary">PNG</button><button class="btn btn-outline">SVG</button><button class="btn btn-outline">PDF</button></div></div>
+            </div>
+          </div>
+
+          <div class="panel" id="panel-analytics">
+            <div class="panel-head"><div><span class="panel-eyebrow">INSIGHTS</span><h2>التحليلات</h2><p>تصور واجهة التحليلات التي ستُربط بأحداث الزيارة والنقر.</p></div><select class="select"><option>آخر 30 يوم</option><option>آخر 7 أيام</option></select></div>
+            <div class="analytics-grid"><div class="metric-card"><span>الزيارات</span><strong>12,842</strong><small class="up">↑ 18.4%</small></div><div class="metric-card"><span>النقرات</span><strong>4,691</strong><small class="up">↑ 12.1%</small></div><div class="metric-card"><span>CTR</span><strong>36.5%</strong><small>من إجمالي الزيارات</small></div></div>
+            <div class="card analytics-card"><div class="chart-title"><div><h3>نشاط الصفحة</h3><p>الزيارات والنقرات اليومية</p></div><div class="legend"><span><i></i> الزيارات</span><span><i></i> النقرات</span></div></div><div class="chart-bars"><i style="--h:42%"></i><i style="--h:55%"></i><i style="--h:48%"></i><i style="--h:66%"></i><i style="--h:61%"></i><i style="--h:78%"></i><i style="--h:69%"></i><i style="--h:88%"></i><i style="--h:81%"></i><i style="--h:94%"></i><i style="--h:76%"></i><i style="--h:86%"></i></div></div>
+          </div>
+
+          <div class="panel" id="panel-settings">
+            <div class="panel-head"><div><span class="panel-eyebrow">PAGE SETTINGS</span><h2>الإعدادات</h2><p>النشر، الخصوصية ونقل التصميم.</p></div></div>
+            <div class="card settings-list"><div><span>الحالة</span><b>منشورة</b><button class="btn btn-outline btn-sm">إيقاف مؤقت</button></div><div><span>عنوان الصفحة</span><b>q-one.me/qone</b><button class="btn btn-outline btn-sm">تعديل</button></div><div><span>فهرسة محركات البحث</span><b>مفعلة</b><label class="switch"><input type="checkbox" checked><span></span></label></div><div><span>استيراد تصميم</span><b>JSON</b><label class="btn btn-outline btn-sm file-button">استيراد<input id="importDesign" type="file" accept="application/json" /></label></div></div>
+          </div>
+        </section>
+
+        <aside class="preview-column v02-preview-column">
+          <div class="preview-toolbar">
+            <div><span>معاينة مباشرة</span><small id="previewDimensions">390 × 844</small></div>
+            <div class="device-toggle" id="deviceToggle"><button class="active" data-device="phone" title="هاتف">▯</button><button data-device="tablet" title="تابلت">▭</button><button data-device="desktop" title="سطح المكتب">▰</button></div>
+          </div>
+          <div class="preview-stage v02-preview-stage" id="previewStage">
+            <div class="device-frame device-phone" id="deviceFrame">
+              <div class="device-island"></div>
+              <div class="profile-screen qone-profile" id="livePreview">
+                <div class="activity-motion-layer" id="previewScene" aria-hidden="true"></div>
+                <div class="profile-top-actions"><button aria-label="المزيد">⋯</button><button aria-label="مشاركة">↗</button></div>
+                <div class="profile-header" id="profileHeader">
+                  <div class="avatar-orbit"><div class="avatar" id="previewAvatar">Q</div></div>
+                  <div class="profile-copy"><h2 id="previewName">Q-One Studio</h2><p id="previewBio">هوية رقمية ذكية، في رابط واحد.</p></div>
+                </div>
+                <div class="micro-stats" id="previewStats"><span><b>12.8K</b> زيارة</span><span><b>4.6K</b> نقرة</span></div>
+                <div class="profile-links" id="previewLinks"></div>
+                <div class="powered" id="previewBranding">Made with <b>Q-One</b></div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <dialog class="link-dialog" id="linkDialog">
+    <form method="dialog" id="linkForm">
+      <div class="dialog-head"><div><span class="panel-eyebrow">BLOCK EDITOR</span><h2 id="dialogTitle">إضافة عنصر</h2></div><button class="dialog-close" value="cancel" aria-label="إغلاق">×</button></div>
+      <div class="dialog-body">
+        <div class="platform-grid" id="platformGrid"></div>
+        <div class="form-grid">
+          <label class="field"><span>العنوان</span><input id="linkTitle" maxlength="40" required /></label>
+          <label class="field link-only-field"><span>الوصف</span><input id="linkSubtitle" maxlength="70" /></label>
+          <label class="field field-full link-only-field"><span>الرابط</span><input id="linkUrl" dir="ltr" placeholder="https://..." /></label>
+          <label class="field"><span>لون خاص لهذا العنصر</span><div class="color-input"><input type="color" id="linkColor" value="#7557ff"><button type="button" class="btn btn-ghost btn-sm" id="clearLinkColor">استخدام Accent</button></div></label>
+          <div class="field field-full lucide-picker-field" id="lucidePickerField">
+            <span>أيقونة Lucide</span>
+            <div class="lucide-picker-head"><button type="button" class="selected-icon-chip" id="selectedIconChip"><i data-lucide="link-2"></i><b id="selectedIconName">link-2</b></button><input id="iconSearch" type="search" placeholder="ابحث في مكتبة Lucide كاملة..." autocomplete="off" /></div>
+            <div class="lucide-icon-grid" id="lucideIconGrid"></div>
+            <small class="lucide-library-note" id="lucideLibraryNote">يتم البحث في جميع أيقونات Lucide المتاحة داخل المكتبة.</small>
+          </div>
+          <div class="dialog-toggles"><label><input id="linkFeatured" type="checkbox"> عنصر مميز</label><label><input id="linkEnabled" type="checkbox" checked> ظاهر</label></div>
+        </div>
+      </div>
+      <div class="dialog-actions"><button class="btn btn-outline" value="cancel">إلغاء</button><button class="btn btn-primary" id="saveLinkBtn" value="default">حفظ العنصر</button></div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast"><b>✓</b><span>تم حفظ التغييرات</span></div>
+  <script src="https://unpkg.com/lucide@1.30.0/dist/umd/lucide.min.js"></script>
+  <script src="assets/js/editor-v03.js"></script>
+</body>
+</html>
